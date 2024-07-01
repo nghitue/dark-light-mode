@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Icon } from '@iconify-icon/react';
 
 export default function Home() {
   const [theme, setTheme] = useState<any>(
@@ -37,27 +38,30 @@ export default function Home() {
               fill="#FF630B"
             ></path>
           </svg>
-          <ul className="flex items-center justify-between gap-x-3">
-            <li>
-              <Link href={"#"}>Home</Link>
-            </li>
-            <li>
-              <Link href={"/about"}>About Me</Link>
-            </li>
-            <li>
-              <Link href={"/contact"}>Contact</Link >
-            </li>
-          </ul>
-          <div className="cursor-pointer" onClick={toggleTheme}>
-            <div>dark</div>
-            <div>light</div>
+          <div className="flex items-center justify-end gap-x-3">
+            <ul className="flex items-center justify-between gap-x-3">
+              <li>
+                <Link href={"#"} className="py-1 px-4 rounded-lg hover:bg-sky-700 hover:text-white">Home</Link>
+              </li>
+              <li>
+                <Link href={"/about"} className="py-1 px-4 rounded-lg hover:bg-sky-700 hover:text-white">About Me</Link>
+              </li>
+              <li>
+                <Link href={"/contact"} className="py-1 px-4 rounded-lg hover:bg-sky-700 hover:text-white">Contact</Link >
+              </li>
+            </ul>
+            <div className="cursor-pointer w-6 h-6 flex items-center justify-center" onClick={toggleTheme}>
+              {
+                theme === "dark" ? <Icon icon="ri:sun-fill" width="20px" height="20px" /> : <Icon icon="material-symbols:dark-mode" width="20px" height="20px" />
+              }
+            </div>
           </div>
         </nav>
       </header>
-      <section>
-        <div className="lg:container lg:mx-auto flex items-center justify-center bg-white dark:bg-black">
-          <h6 className="text-center dark:hidden">Light theme</h6>
-          <h6 className="hidden text-center dark:block dark:text-white">
+      <section className="bg-white dark:bg-black">
+        <div className="lg:container lg:mx-auto flex items-center justify-center">
+          <h6 className="text-center dark:hidden h-full">Light theme</h6>
+          <h6 className="hidden text-center dark:block dark:text-white h-full">
             Dark theme
           </h6>
         </div>
